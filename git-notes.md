@@ -6,6 +6,4 @@ ask git to track your file git-notes.md
 commit your work
 add some more notes / links
 commit these new changes
-add something silly: like remove 1 or 2 lines, as if accidentally (and save).
-make sure you had committed your work before saving these mistakes.
 undo these mistakes using git
