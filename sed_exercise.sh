@@ -10,4 +10,4 @@ cat tableofSNPs.csv | gsed -E 's/\"([0-9]+),([0-9]+)\"/\1\2/g' | gsed -E 's/\"([
 # To check that your edited csv file is correct, 
 # write another one-liner using sed to make sure that every row 
 # has exactly 3 commas (because 4 columns).
-cat new_tableofSNPs.csv | sed -E 's/[^,]//g' | grep -xv ",,," | wc -l
+cat new_tableofSNPs.csv | gsed -E 's/[^,]//g' | grep -xv ",,," | wc -l
