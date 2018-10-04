@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# echo TG,"1,650",7,100.00% | gsed -E 's,"([0-9]+),([0-9]+)"(+)/\1\t\2\t\3/'
+
+# write a one-liner using sed to fix the problem: 
+# change every value in the "Minimum" column to eliminate
+#     the commas inside the numbers and
+#     the quotes around the numbers.
 cat tableofSNPs.csv | gsed -E 's/\"([0-9]+),([0-9]+)\"/\1\2/g' | gsed -E 's/\"([0-9]+),([0-9]+),([0-9]+)\"/\1\2\3/g' > new_tableofSNPs.csv
 
-
+# To check that your edited csv file is correct, 
+# write another one-liner using sed to make sure that every row 
+# has exactly 3 commas (because 4 columns).
 cat new_tableofSNPs.csv | sed -E 's/[^,]//g' | grep -xv ",,," | wc -l
-
-
-
-# 's/^(chr[^:]+):([0-9]+)-([0-9]+)/\1\t\2\t\3/'
-# echo "chr12:74-431" | gsed -E 's/^(chr[^:]+):([0-9]+)-([0-9]+)/\1\t\2\t\3/'
